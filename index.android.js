@@ -12,8 +12,8 @@ import {
 import { StackNavigator, TabNavigator, DrawerNavigator } from "react-navigation";
 
 
-import { AppStackNav } from './app/components/AppStackNav';
+import { AppNav } from './app/components/AppNav';
 
 
-AppRegistry.registerComponent('DreamReactNative', () => AppStackNav);
+AppRegistry.registerComponent('DreamReactNative', () => AppNav);
 

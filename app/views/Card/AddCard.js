@@ -3,21 +3,18 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  Image,
   Button,
   View
 } from 'react-native';
 
-import { ImgSwiper } from '../components/ImgSwiper';
 
-export class HomeScreen extends Component {
+export class AddCard extends Component {
 
   render() {
     return (
       <View style={styles.container}>
-        <ImgSwiper />
         <Text style={styles.welcome}>
-          Home
+          Card Add
         </Text>
       </View>
     );
@@ -26,11 +23,20 @@ export class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'flex-start',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    flex: 1
+    backgroundColor: '#F5FCFF',
   },
-  
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });
 

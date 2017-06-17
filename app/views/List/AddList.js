@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 
 
-export class Add extends Component {
+export class AddList extends Component {
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Card Add
+          Card List
         </Text>
       </View>
     );
