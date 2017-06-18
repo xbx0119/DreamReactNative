@@ -6,4 +6,4 @@
 
 
 ## demo
-![demo](./reference/demo.gif)
+<img src="./reference/demo.gif" width="300" />
