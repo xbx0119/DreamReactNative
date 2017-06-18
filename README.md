@@ -11,6 +11,7 @@
 ## demo
 <img src="./reference/demo.gif" width="300" />
 
+
 ## install & run
 ```
 $ git clone git@github.com:xbx0119/DreamReactNative.git
@@ -23,3 +24,7 @@ Open another terminal
 ```
 $ react-native run-android
 ```
+
+
+## upadte
+Because of the recent final exam, the project will stop updating for several weeks,I will be back soon.
