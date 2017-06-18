@@ -5,4 +5,4 @@
 ![demo](./reference/logo.png)
 
 ## demo
-![demo](./reference/demo.mp4)
+![demo](./reference/demo.gif)
