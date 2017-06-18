@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   Image,
+  Button,
   View
 } from 'react-native';
 
@@ -16,6 +17,11 @@ export class AccountScreen extends Component {
         <Text style={styles.welcome}>
           Account
         </Text>
+        <Button
+          onPress={() => alert("记一笔")}
+          title="记一笔"
+          color="#426ab3"
+        />
       </View>
     );
   }

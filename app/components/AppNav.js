@@ -10,7 +10,9 @@ import {
 import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
 import { DrawerItems } from 'react-navigation';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+// 实现自定义IconFont更好用，取消引入Ionicons
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+import { IconFont } from './IconFont';
 
 // 首页
 import { HomeScreen } from '../views/HomeScreen';
@@ -29,8 +31,10 @@ import { LoginScreen } from '../views/LoginScreen';
 import { AddCard } from '../views/Card/AddCard';
 // 添加清单
 import { AddList } from '../views/List/AddList';
-
-
+// 清单列表
+import { ListContent } from '../views/List/ListContent';
+// 清单详情
+import { ListDetail } from '../views/List/ListDetail';
 
 /*
  * stackNavigator
@@ -44,94 +48,6 @@ const stackOption = {
       }
   }
 }
-
-// 首页导航
-const HomeStack = StackNavigator({
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: {
-        title: '梦想助手',
-        tabBarLabel: '首页',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons 
-            name={'md-home'} 
-            size={28} 
-            style={{ color: tintColor }} 
-          />
-        ),
-      },
-    },
-},stackOption);
-
-// 打卡导航
-const CardStack = StackNavigator({
-    Card: {
-      screen: CardScreen,
-      navigationOptions: ({ navigation }) => ({
-        title: '梦想打卡',
-        tabBarLabel: '打卡',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons name={'md-card'} size={28} style={{ color: tintColor }} />
-        ),
-        headerRight: <Ionicons 
-                        name={'md-add'} 
-                        size={30} 
-                        style={{color: '#fff', marginRight: 15}} 
-                        onPress={() => navigation.navigate('AddCard') } 
-                     />,
-      }),
-    },
-    AddCard: { 
-      screen: AddCard,
-      navigationOptions: {
-          title: '添加卡片'
-      }
-    },
-}, stackOption);
-
-// 清单导航
-const ListStack = StackNavigator({
-    List: {
-      screen: ListScreen,
-      navigationOptions: ({ navigation }) => ({
-        title: '梦想清单',
-        tabBarLabel: '清单',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons name={'md-list-box'} size={28} style={{ color: tintColor }} />
-        ),
-        headerRight: <Ionicons 
-                        name={'md-add'} 
-                        size={30} 
-                        style={{color: '#fff', marginRight: 15}} 
-                        onPress={() => navigation.navigate('AddList') } 
-                     />,
-      }),
-    },
-    AddList: {
-      screen: AddList,
-      navigationOptions: {
-          title: '添加清单'
-      }
-    }
-},stackOption);
-
-// 记账导航
-const AccountStack = StackNavigator({
-    Account: {
-      screen: AccountScreen,
-      navigationOptions: {
-        title: '记账',
-        tabBarLabel: '记账',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons 
-            name={'md-create'} 
-            size={28} 
-            style={{ color: tintColor }} 
-          />
-        ),
-      },
-    },
-},stackOption);
 
 // 我的导航
 const MyStack = StackNavigator({
@@ -157,16 +73,66 @@ const MyStack = StackNavigator({
 */
 const AppTabNav = TabNavigator({
     Home: { 
-      screen: HomeStack
+      screen: HomeScreen,
+      navigationOptions: {
+        title: '梦想助手',
+        tabBarLabel: '首页',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <IconFont
+            font="&#xe7d8;"
+            style={{ color: tintColor, fontSize: 26 }}
+          />
+        ),
+      },
     },
     Card: { 
-      screen: CardStack
+      screen: CardScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: '梦想打卡',
+        tabBarLabel: '打卡',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <IconFont
+            font="&#xe751;"
+            style={{ color: tintColor, fontSize: 26 }}
+          />
+        ),
+        headerRight: <IconFont 
+                        font="&#xe6da;" 
+                        style={{color: '#fff', marginRight: 15, fontSize: 30}} 
+                        onPress={() => navigation.navigate('AddCard') } 
+                     />,
+      }),
     },
     List: { 
-      screen: ListStack
+      screen: ListScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: '梦想清单',
+        tabBarLabel: '清单',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <IconFont
+            font="&#xe65b;"
+            style={{ color: tintColor, fontSize: 26 }}
+          />
+        ),
+        headerRight: <IconFont 
+                        font="&#xe6da;" 
+                        style={{color: '#fff', marginRight: 15, fontSize: 30}} 
+                        onPress={() => navigation.navigate('AddList') } 
+                     />,
+      }),
     },
     Account: { 
-      screen: AccountStack
+      screen: AccountScreen,
+      navigationOptions: {
+        title: '记账',
+        tabBarLabel: '记账',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <IconFont
+            font="&#xe614;"
+            style={{ color: tintColor, fontSize: 26 }}
+          />
+        ),
+      },
     }
 }, {
     initialRouteName: 'Home',
@@ -189,11 +155,50 @@ const AppTabNav = TabNavigator({
     }
 });
 
+
+
+const AppStack = StackNavigator({
+    Home: {
+      screen: AppTabNav,
+    },
+    AddCard: { 
+      screen: AddCard,
+      navigationOptions: {
+          title: '添加卡片'
+      }
+    },
+    AddList: {
+      screen: AddList,
+      navigationOptions: {
+          title: '添加清单'
+      }
+    },
+    ListContent: {
+      screen: ListContent,
+      navigationOptions: {
+          title: '列表标题'
+      }
+    },
+    ListDetail: {
+      screen: ListDetail,
+      navigationOptions: {
+          title: '列表标题',
+          headerRight: <IconFont 
+                        font="&#xe645;" 
+                        style={{color: '#fff', marginRight: 15, fontSize: 28}} 
+                        onPress={() => alert("ok") } 
+                     />,
+      }
+    },
+}, stackOption);
+
+
+
+
 /*
  * drawerNavigator
  * 
 */
-
 // 自定义侧边导航栏
 const DrawerContent = (props) => {
   return(
@@ -208,7 +213,7 @@ const DrawerContent = (props) => {
 
 export const AppNav = DrawerNavigator({
   App: {
-      screen: AppTabNav,
+      screen: AppStack,
       navigationOptions: {
         title: '',
         tabBarLabel: '',
@@ -238,7 +243,7 @@ const styles = StyleSheet.create({
     height: 80,
     textAlign: 'center',
     textAlignVertical: 'center'
-  }
+  },
 });
 
 

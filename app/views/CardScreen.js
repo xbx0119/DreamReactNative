@@ -46,6 +46,7 @@ export class CardScreen extends Component {
           <TouchableHighlight onPress={() => { this.setModalVisible(true) }}><View><Card /></View></TouchableHighlight> 
           <TouchableHighlight onPress={() => { this.setModalVisible(true) }}><View><Card /></View></TouchableHighlight> 
           <TouchableHighlight onPress={() => { this.setModalVisible(true) }}><View><Card /></View></TouchableHighlight> 
+          <TouchableHighlight onPress={() => { this.setModalVisible(true) }}><View><Card /></View></TouchableHighlight> 
         </ScrollView>  
       </View>
     );

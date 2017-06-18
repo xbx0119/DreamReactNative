@@ -1,3 +1,8 @@
+react native的调试　command + M
+
+
+使用自定义字体：http://www.jianshu.com/p/96d5c66791c3
+
 react-native-vector-icons
  http://ionicons.com/
 
@@ -39,3 +44,6 @@ react-native-swiper:
 安卓上与tabnavigator共用时图片内容不显示
 解决方案：http://www.cnblogs.com/cielu/p/6940184.html
 参考github issue : https://github.com/leecade/react-native-swiper
+
+
+reactnative如何实现checkbox:http://www.peng8.net/2016/07/06/write-checkbox-component-in-React/
