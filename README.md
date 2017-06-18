@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/xbx0119/DreamReactNative">
-    <img width="120" heigth="120" src="./reference/logo.png">
+    <img width="80" heigth="80" src="./reference/logo.png">
   </a>  
   <h2>梦梦</h2>
   <h1>DreamReactNative</h1>
